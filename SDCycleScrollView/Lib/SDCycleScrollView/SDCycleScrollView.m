@@ -536,7 +536,12 @@ NSString * const ID = @"SDCycleScrollViewCell";
     self.pageControl.hidden = !_showPageControl;
     
     if (self.backgroundImageView) {
-        self.backgroundImageView.frame = self.bounds;
+        CGSize s = self.bounds.size;
+        if (self.backgroundImageView.image){
+            s.width = self.backgroundImageView.image.size.width;
+            s.height = self.backgroundImageView.image.size.height;
+        }
+        self.backgroundImageView.frame = CGRectMake((self.bounds.size.width - s.width)/2.0, (self.bounds.size.height - s.height)/2.0, s.width, s.height);
     }
     
 }
