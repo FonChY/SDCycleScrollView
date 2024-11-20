@@ -92,7 +92,7 @@ NSString * const ID = @"SDCycleScrollViewCell";
     _currentPageDotColor = [UIColor whiteColor];
     _pageDotColor = [UIColor lightGrayColor];
     _bannerImageViewContentMode = UIViewContentModeScaleToFill;
-    
+    _placeholderContentMode = UIViewContentModeScaleAspectFit;
     self.backgroundColor = [UIColor lightGrayColor];
     
 }
@@ -170,7 +170,7 @@ NSString * const ID = @"SDCycleScrollViewCell";
     
     if (!self.backgroundImageView) {
         UIImageView *bgImageView = [UIImageView new];
-        bgImageView.contentMode = UIViewContentModeScaleAspectFit;
+        bgImageView.contentMode = _placeholderContentMode;
         [self insertSubview:bgImageView belowSubview:self.mainView];
         self.backgroundImageView = bgImageView;
     }
